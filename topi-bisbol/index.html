@@ -4,30 +4,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Topi Bisbol Unisex — Maritoko</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="description" content="Topi Bisbol Unisex nyaman, ringan, adjustable.">
   <link rel="canonical" href="https://maritoko.com/topi-bisbol/">
   <style>
-    :root{--bg:#0b0f14;--card:#0f1621;--muted:#9ca3af;--fg:#e5e7eb;--brand:#38bdf8;--max:1100px;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.3)}
+    :root{--bg:#0b0f14;--card:#0f1621;--muted:#9ca3af;--fg:#e5e7eb;--brand:#38bdf8;--max:1100px;--radius:18px;--shadow:0 10px 10px rgba(0,0,0,.3)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14,#0a0f18 60%,#0b1220);color:var(--fg)}
-    .wrap{max-width:var(--max);margin:0 auto;padding:20px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:5px}
     .hero{display:grid;gap:22px;grid-template-columns:1fr}
     @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr}}
     .card{background:var(--card);border:1px solid #1f2937;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .imgbox{position:relative;overflow:hidden;aspect-ratio:4/3;border-radius:var(--radius)}
-    .imgbox img{width:100%;height:100%;object-fit:cover;display:block}
+    .imgbox{position:relative;overflow:hidden;border-radius:5px}
+    .imgbox img{width:100%;height:auto;display:block;object-fit:cover}
     .content{padding:18px 18px 8px}
     .title{font-size:30px;line-height:1.2;margin:0 0 8px}
     .muted{color:var(--muted)}
-    .price{display:flex;align-items:baseline;gap:10px;margin:14px 0 6px}
+    .price{display:flex;align-items:baseline;gap:10px;margin:6px 0 4px}
     .price .now{font-size:28px;font-weight:800;color:#e2f3ff}
     .price .was{font-size:16px;text-decoration:line-through;color:#8aa3b5}
+
+    /* Pills */
     .pill{display:inline-flex;align-items:center;gap:8px;background:#0a1724;border:1px solid #112437;padding:8px 12px;border-radius:999px;font-size:13px;margin:6px 4px 0 0}
+
+    /* Buttons */
     .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .btn{appearance:none;border:0;padding:14px 18px;border-radius:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px}
+    .btn{appearance:none;border:0;padding:14px 18px;border-radius:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;flex:1;text-align:center;transition:.2s ease}
     .btn-primary{background:var(--brand);color:#062533}
     .btn-wa{background:#064e3b;color:#d1fae5;border:1px solid #0b6b51}
+    .btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+    @media (max-width:768px){.cta{flex-direction:column}.btn{width:100%;flex:none}}
+
     .note{font-size:12px;color:#9fb4c7;margin-top:12px}
+
+    /* ====== SS (rating + flash sale bar) ====== */
+    .ss-wrap{max-width:640px}
+    .ss-head{font-weight:bold;font-size:24px;display:flex;align-items:center;gap:6px}
+    .ss-badge{background:#ff5722;color:#fff;font-size:11px;padding:4px 6px;border-radius:3px}
+    .ss-meta{margin-top:6px;display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+    .ss-stars{color:#f5a623;font-size:14px}
+    .ss-rate{font-size:13px}
+    .ss-rev{font-size:13px;color:#9aa5b1}
+    .flash-sale-bar{margin-top:10px;background:#ff5722;color:#fff;padding:8px 10px;border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:10px;white-space:nowrap;overflow:hidden}
+    .flash-sale-bar .left{font-weight:bold;flex-shrink:0}
+    .flash-sale-bar .right{flex-grow:1;text-align:right;font-size:13px}
+    #fs-timer{background:#000;color:#fff;padding:3px 6px;border-radius:3px;margin-left:6px;display:inline-block;min-width:68px;text-align:center}
+    @media(max-width:480px){
+      .flash-sale-bar{font-size:13px}
+      #fs-timer{font-size:12px;padding:2px 5px}
+    }
   </style>
 </head>
 <body>
@@ -35,24 +60,52 @@
     <section class="hero">
       <div class="card">
         <div class="imgbox">
-          <img id="pimg" src="https://via.placeholder.co/1200x900?text=Topi+Bisbol" alt="Topi Bisbol Unisex">
+          <img src="topi-1.webp" alt="Topi Bisbol Unisex">
+          <img src="topi-2.jpg" alt="Topi Bisbol Unisex">
+          <img src="topi-3.jpg" alt="Topi Bisbol Unisex">
+          <img src="topi-4.jpg" alt="Topi Bisbol Unisex">
+          <img src="topi-5.webp" alt="Topi Bisbol Unisex">
         </div>
+
         <div class="content">
-          <div class="title">Topi Bisbol Unisex</div>
-          <div class="muted">Nyaman, ringan, adjustable — cocok harian & olahraga.</div>
-          <div class="price">
-            <div class="now" id="price-now">Rp49.000</div>
-            <div class="was" id="price-was">Rp79.000</div>
+          <!-- ====== SS block dari kode kedua (sudah disinkronkan) ====== -->
+          <div class="ss-wrap">
+            <div class="ss-head">
+              <span class="ss-badge">Star+</span>
+              Topi Premium Unisex Import
+            </div>
+
+            <div class="ss-meta">
+              <span class="ss-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="ss-rate">4.8</span>
+              <span class="ss-rev">188 Penilaian</span>
+            </div>
+
+            <div class="flash-sale-bar">
+              <div class="left">⚡ FLASH SALE</div>
+              <div class="right">🕒 BERAKHIR DALAM
+                <span id="fs-timer">01:00:00</span>
+              </div>
+            </div>
           </div>
+          <!-- ====== /SS block ====== -->
+
+          <div class="price">
+  <div class="was" id="price-was">Rp79.000</div>
+  <div class="now" id="price-now">Rp49.000</div>
+</div>
+
           <div>
             <span class="pill">Stok: <b>Tersedia</b></span>
             <span class="pill">Garansi 7 Hari</span>
             <span class="pill">COD/Transfer</span>
           </div>
+
           <div class="cta">
             <a id="btn-buy" class="btn btn-primary" href="#">🛒 Beli Sekarang</a>
             <a id="btn-wa" class="btn btn-wa" href="#" target="_blank" rel="noopener">💬 Tanya via WhatsApp</a>
           </div>
+
           <p class="note">Harga & stok bisa berubah. Pastikan alamat & nomor WA aktif.</p>
         </div>
       </div>
@@ -61,13 +114,19 @@
 
   <script>
     // ===========================
-    // CONFIG (EDIT DI SINI)
+    // CONFIG
     // ===========================
     const PRODUCT_ID   = 477;
     const CHECKOUT_URL = "https://maritoko.com/checkout/";
     const WA_NUMBER    = "6285178200718";
     const WA_TEXT      = "Halo admin Maritoko, saya mau Topi Bisbol Unisex. Apakah ready?";
 
+    // Harga tampilan
+    const f = n => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
+    document.getElementById('price-now').textContent = f(49000);
+    document.getElementById('price-was').textContent = f(79000);
+
+    // Beli sekarang (anti dobel add-to-cart)
     const addOnceAndCheckout = () => {
       const flagKey = "added-"+PRODUCT_ID;
       const added = sessionStorage.getItem(flagKey) === "1";
@@ -76,12 +135,25 @@
     };
     document.getElementById('btn-buy').addEventListener('click', e => { e.preventDefault(); addOnceAndCheckout(); });
 
+    // WhatsApp
     const waLink = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_TEXT + "\nLink: " + location.href);
     document.getElementById('btn-wa').href = waLink;
 
-    const f = n => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
-    document.getElementById('price-now').textContent = f(49000);
-    document.getElementById('price-was').textContent = f(79000);
+    // ===========================
+    // FLASH SALE TIMER (1 jam)
+    // ===========================
+    let sisa = 60 * 60; // 60 menit
+    const timerEl = document.getElementById("fs-timer");
+    function tick() {
+      const jam   = String(Math.floor(sisa / 3600)).padStart(2,'0');
+      const menit = String(Math.floor((sisa % 3600) / 60)).padStart(2,'0');
+      const detik = String(sisa % 60).padStart(2,'0');
+      timerEl.textContent = `${jam}:${menit}:${detik}`;
+      sisa--;
+      if (sisa < 0) { clearInterval(iv); timerEl.textContent = "00:00:00"; }
+    }
+    tick();
+    const iv = setInterval(tick, 1000);
   </script>
 </body>
 </html>
