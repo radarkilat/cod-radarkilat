@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Topi Bisbol Unisex — Maritoko</title>
+  <meta name="description" content="Topi Bisbol Unisex nyaman, ringan, adjustable.">
+  <link rel="canonical" href="https://maritoko.com/topi-bisbol/">
+  <style>
+    :root{--bg:#0b0f14;--card:#0f1621;--muted:#9ca3af;--fg:#e5e7eb;--brand:#38bdf8;--max:1100px;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.3)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14,#0a0f18 60%,#0b1220);color:var(--fg)}
+    .wrap{max-width:var(--max);margin:0 auto;padding:20px}
+    .hero{display:grid;gap:22px;grid-template-columns:1fr}
+    @media(min-width:900px){.hero{grid-template-columns:1.05fr .95fr}}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .imgbox{position:relative;overflow:hidden;aspect-ratio:4/3;border-radius:var(--radius)}
+    .imgbox img{width:100%;height:100%;object-fit:cover;display:block}
+    .content{padding:18px 18px 8px}
+    .title{font-size:30px;line-height:1.2;margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .price{display:flex;align-items:baseline;gap:10px;margin:14px 0 6px}
+    .price .now{font-size:28px;font-weight:800;color:#e2f3ff}
+    .price .was{font-size:16px;text-decoration:line-through;color:#8aa3b5}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#0a1724;border:1px solid #112437;padding:8px 12px;border-radius:999px;font-size:13px;margin:6px 4px 0 0}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{appearance:none;border:0;padding:14px 18px;border-radius:12px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px}
+    .btn-primary{background:var(--brand);color:#062533}
+    .btn-wa{background:#064e3b;color:#d1fae5;border:1px solid #0b6b51}
+    .note{font-size:12px;color:#9fb4c7;margin-top:12px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <div class="imgbox">
+          <img id="pimg" src="https://via.placeholder.co/1200x900?text=Topi+Bisbol" alt="Topi Bisbol Unisex">
+        </div>
+        <div class="content">
+          <div class="title">Topi Bisbol Unisex</div>
+          <div class="muted">Nyaman, ringan, adjustable — cocok harian & olahraga.</div>
+          <div class="price">
+            <div class="now" id="price-now">Rp49.000</div>
+            <div class="was" id="price-was">Rp79.000</div>
+          </div>
+          <div>
+            <span class="pill">Stok: <b>Tersedia</b></span>
+            <span class="pill">Garansi 7 Hari</span>
+            <span class="pill">COD/Transfer</span>
+          </div>
+          <div class="cta">
+            <a id="btn-buy" class="btn btn-primary" href="#">🛒 Beli Sekarang</a>
+            <a id="btn-wa" class="btn btn-wa" href="#" target="_blank" rel="noopener">💬 Tanya via WhatsApp</a>
+          </div>
+          <p class="note">Harga & stok bisa berubah. Pastikan alamat & nomor WA aktif.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // ===========================
+    // CONFIG (EDIT DI SINI)
+    // ===========================
+    const PRODUCT_ID   = 477;
+    const CHECKOUT_URL = "https://maritoko.com/checkout/";
+    const WA_NUMBER    = "6285178200718";
+    const WA_TEXT      = "Halo admin Maritoko, saya mau Topi Bisbol Unisex. Apakah ready?";
+
+    const addOnceAndCheckout = () => {
+      const flagKey = "added-"+PRODUCT_ID;
+      const added = sessionStorage.getItem(flagKey) === "1";
+      if (added) location.href = CHECKOUT_URL + "?src=cfpages";
+      else { sessionStorage.setItem(flagKey,"1"); location.href = CHECKOUT_URL + "?add-to-cart=" + PRODUCT_ID + "&quantity=1&src=cfpages"; }
+    };
+    document.getElementById('btn-buy').addEventListener('click', e => { e.preventDefault(); addOnceAndCheckout(); });
+
+    const waLink = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(WA_TEXT + "\nLink: " + location.href);
+    document.getElementById('btn-wa').href = waLink;
+
+    const f = n => new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
+    document.getElementById('price-now').textContent = f(49000);
+    document.getElementById('price-was').textContent = f(79000);
+  </script>
+</body>
+</html>
